@@ -1,0 +1,26 @@
+[
+  {
+    "model": "bratari.bratara",
+    "id": 1,
+    "fields": {
+      "name": "Cu zorzoane",
+      "quantity": 10,
+      "price": 29.90,
+      "color_gold": "galben",
+      "greutate": "12",
+      "size": 12}
+    },
+  {
+    "model": "bratari.bratara",
+    "id": 2,
+    "fields": {
+      "name": "Cu flori",
+      "quantity": 15,
+      "price": 49.90,
+      "color_gold": "galben",
+      "greutate": "25",
+      "size": 10
+    }
+  }
+
+]

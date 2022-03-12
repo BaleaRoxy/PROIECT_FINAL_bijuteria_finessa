@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        {% if cart_items|length == 0 %}
+            <p>No product added to cart.</p>
+        {% else %}
+            <ul>
+                {% for cart_item in cart_items %}
+                    <li class="d-flex">
+                        <div>
+                            {{ cart_item.product.name }} - {{ cart_item.product.price }} RON - Qty: {{ cart_item.quantity }} - Total Price: {{ cart_item.total }}
+                        </div>
+                        <form method="post" action="{% url 'products:remove_from_cart' cart_item.product.id %}">
+                            {% csrf_token %}
+                            <input class="btn btn-link text-danger" type="submit" value="Remove" />
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            {% if select_card_form.fields.card.choices|length == 0 %}
+                <p>There are no payment methods available. Please register one <a href="{% url 'payments:add_card' %}">here</a>.</p>
+            {% else %}
+                <form method="post" action="{% url 'payments:order' %}">
+                    {% csrf_token %}
+                    {{ select_card_form.as_p }}
+                    <input type="submit" value="Order" />
+                </form>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}

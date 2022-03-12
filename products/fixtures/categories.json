@@ -1,0 +1,19 @@
+[{
+  "model": "products.category",
+  "id": 1,
+  "fields": {
+    "name": "Aur alb"
+  }
+}, {
+  "model": "products.category",
+  "id": 2,
+  "fields": {
+    "name": "Aur rosu"
+  }
+}, {
+  "model": "products.category",
+  "id": 3,
+  "fields": {
+    "name": "Aur galben"
+  }
+}]

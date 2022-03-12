@@ -1,0 +1,40 @@
+{% load cart %}
+
+<div class="container">
+<nav>
+    <center>
+        <link rel="shortcut icon" href="#">
+        <a href="/"><button type="button" class="btn btn-outline-dark">BIJUTERIA FINESSA</button></a>
+
+        <a href="{% url 'products:all' %}"> <button type="button" class="btn btn-outline-dark">BIJUTERII</button> </a>
+
+
+         {% if request.user.is_authenticated %}
+            {% cart_data request.session 'cart' as cart_info %}
+
+         <a href="" title="Total: {{ cart_info.total}} RON"> <button type="button" class="btn btn-outline-dark">
+                        {% comment %}
+                            Cart ({{ request.session|product_no }})
+                        {% endcomment %}
+                        {% comment %}
+                        Cart ({{ request.session|dict_length:'cart' }})
+                        {% endcomment %}
+                        Cart ({{cart_info.items }})
+             </button>
+                    </a>
+        <a href="{% url 'users:profile' %}"> <button type="button" class="btn btn-outline-dark">PROFILE</button></a>
+        <a href="{% url 'payments:orders' %}"> <button type="button" class="btn btn-outline-dark">Orders</button></a>
+        <a href="{% url 'payments:cards' %}"><button type="button" class="btn btn-outline-dark">Payment methods</button></a>
+        <a href="{% url 'users:logout' %}"><button type="button" class="btn btn-outline-dark">LOGOUT</button></a>
+
+                {% else %}
+
+        <a href="{% url 'users:login' %}"><button type="button" class="btn btn-outline-dark">LOGIN</button></a>
+        <a href="{% url 'users:register' %}"><button type="button" class="btn btn-outline-dark">REGISTER</button></a>
+         {% endif %}
+
+</center>
+
+
+</nav>
+    </div>

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>{{ product.name }}</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <main class="pt-5">
+        <div class="row g-3">
+            <div class="col-md-5 col-lg-5 order-md-first bg-light">
+                <img class="img-fluid mx-auto d-block" width="200px" alt="Responsive image" src="{{ product.image.url }}">
+            </div>
+        <p><strong>Name:</strong> {{ product.name }}</p>
+        <p><strong>Price:</strong> {{ product.price }} RON</p>
+        <p><strong>Culoare metal</strong></p>
+        <ul>
+            {% for category in product.categories.all %}
+                <li>{{ category.name }} )</li>
+            {% endfor %}
+        </ul>
+        {% comment %}
+        <ul>
+            {% for category_pivot in product.categories_pivot.all %}
+                <li>{{ category_pivot.category.name }} ({{ category_pivot.extra_column }})</li>
+            {% endfor %}
+        </ul>
+        {% endcomment %}
+    </div>
+
+</main>
+        </div>
+{% endblock %}

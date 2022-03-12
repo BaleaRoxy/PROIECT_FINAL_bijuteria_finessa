@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<center>
+    <title>My first Django homepage</title>
+</center>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'styles/homepage.css' %}" />
+{% endblock %}
+
+{% block content %}
+    <h1>
+        <div class="col-12" style="background-color: black">
+            <center>
+                 <img src="{% static 'images/logofinesa.png' %}" width="375"/>
+            </center>
+
+
+        </div>
+     <span>{{ title }}</span>
+
+    </h1>
+<center>
+    <h2>Homepage</h2>
+    <h3>Services</h3>
+</center>
+    <ul>
+        {% for service in services %}
+            <li style="margin-bottom: 10px; {% if not forloop.counter0|divisibleby:2 %}background-color: #eee;{% endif %}">
+                {{ forloop.counter0 }} <strong>{{ service.name }}</strong>: {{ service.value }}
+            </li>
+        {% endfor %}
+    </ul>
+    <p>Gold is a chemical element with the symbol Au (from Latin: aurum) and atomic number 79, making it one of the higher atomic number elements that occur naturally. It is a bright, slightly orange-yellow, dense, soft, malleable, and ductile metal in a pure form. Chemically, gold is a transition metal and a group 11 element. It is one of the least reactive chemical elements and is solid under standard conditions. Gold often occurs in free elemental (native) form, as nuggets or grains, in rocks, veins, and alluvial deposits. It occurs in a solid solution series with the native element silver (as electrum), naturally alloyed with other metals like copper and palladium, and mineral inclusions such as within pyrite. Less commonly, it occurs in minerals as gold compounds, often with tellurium (gold tellurides).</p>
+<a class="btn btn-outline-dark" href="https://en.wikipedia.org/wiki/Gold" target="_blank">View more...</a>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+             <img src="{% static 'images/5.jpg' %}" width="100"  />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            Col 6
+        </div>
+        <div class="col-6">
+            Col 6
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            Col 4
+        </div>
+        <div class="col-4">
+            Col 4
+        </div>
+        <div class="col-4">
+            Col 4
+        </div>
+    </div>
+    <br/><br/>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-3">
+            Col 3
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            Col 3
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            Col 3
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            Col 3
+        </div>
+    </div>
+    <br/><br/>
+    <div class="row">
+        <div class="col-2" style="background-color: red">
+            Col 2
+        </div>
+        <div class="col-6" style="background-color: blue">
+            Col 6
+        </div>
+        <div class="col-4" style="background-color: green">
+            Col 4
+        </div>
+    </div>
+</div>
+
+{% endblock %}
